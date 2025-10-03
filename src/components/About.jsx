@@ -27,7 +27,7 @@ function About() {
       company: "IMP Studio",
       role: "Intern As Fullstack Developer",
       period: "August 2025 - Feb 2026",
-      stacks: ["Django", "Daisy UI", "PotgreSQL", "APIs", "Git" ],
+      stacks: ["Django", "Daisy UI", "PostgreSQL", "APIs", "Git"],
     },
   ];
 
@@ -37,30 +37,30 @@ function About() {
       school: "SMK Taruna Bhakti",
       degree: "Software Engineering (RPL)",
       period: "2023 - Present",
-      stacks: ["Laravel", "Databases", "Flutter", "Tailwind CSS", "Git" ],
+      stacks: ["Laravel", "Databases", "Flutter", "Tailwind CSS", "Git"],
     },
   ];
 
-  // reusable card component
+  // Card component
   const TimelineCard = ({ item, type }) => (
     <div
-      className={`relative pl-10 pb-10 border-l border-cyan-500/20 ${
+      className={`relative pl-8 md:pl-10 pb-10 border-l border-cyan-500/20 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       } transition-all duration-700`}
     >
-      {/* dot indicator */}
-      <div className="absolute -left-[9px] top-2 w-5 h-5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 border-2 border-[#1a1f2e]" />
+      {/* Dot indicator */}
+      <div className="absolute -left-[7px] md:-left-[9px] top-2 w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 border-2 border-[#1a1f2e]" />
 
-      {/* period */}
+      {/* Period */}
       <span className="text-xs text-cyan-300 font-medium bg-white/5 px-2 py-1 rounded-full">
         {item.period}
       </span>
 
-      {/* card content */}
-      <div className="mt-3 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 shadow-lg shadow-black/20">
-        <div className="flex items-start gap-4">
-          {/* logo */}
-          <div className="w-12 h-12 rounded-full border-2 border-cyan-400/30 flex items-center justify-center overflow-hidden">
+      {/* Card Content */}
+      <div className="mt-3 p-4 md:p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300 shadow-lg shadow-black/20">
+        <div className="flex flex-col sm:flex-row items-start gap-4">
+          {/* Logo */}
+          <div className="w-12 h-12 rounded-full border-2 border-cyan-400/30 flex items-center justify-center overflow-hidden flex-shrink-0">
             <img
               src={item.logo}
               alt={type === "career" ? item.company : item.school}
@@ -93,7 +93,7 @@ function About() {
   return (
     <section
       id="about"
-      className="min-h-screen py-20 px-6 bg-[#1a1f2e] relative overflow-hidden"
+      className="min-h-screen py-16 md:py-20 px-4 md:px-6 bg-[#1a1f2e] relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
@@ -102,16 +102,21 @@ function About() {
             isVisible ? "opacity-100" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-3">
-            About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Me</span>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-3">
+            About{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">
+              Me
+            </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
             My journey in coding, career, and education.
           </p>
         </div>
 
         {/* Career Timeline */}
-        <h3 className="text-2xl font-bold text-cyan-300 mb-6">💼 Career</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-cyan-300 mb-6 text-center md:text-left">
+          💼 Career
+        </h3>
         <div className="relative">
           {careers.map((c, i) => (
             <TimelineCard key={i} item={c} type="career" />
@@ -119,7 +124,9 @@ function About() {
         </div>
 
         {/* Education Timeline */}
-        <h3 className="text-2xl font-bold text-cyan-300 mt-12 mb-6">🎓 Education</h3>
+        <h3 className="text-xl md:text-2xl font-bold text-cyan-300 mt-12 mb-6 text-center md:text-left">
+          🎓 Education
+        </h3>
         <div className="relative">
           {education.map((e, i) => (
             <TimelineCard key={i} item={e} type="edu" />

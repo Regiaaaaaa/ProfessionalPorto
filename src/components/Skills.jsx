@@ -16,7 +16,7 @@ import {
   SiGit,
 } from "react-icons/si";
 import { TbFlower } from "react-icons/tb";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 function Skills() {
   const [category, setCategory] = useState("All");
@@ -32,7 +32,7 @@ function Skills() {
     { name: "ReactJS", category: "Web Development", icon: <SiReact size={40} className="text-cyan-400" />, link: "https://react.dev", desc: "Web Development" },
     { name: "PHP", category: "Web Development", icon: <SiPhp size={40} className="text-indigo-500" />, link: "https://www.php.net", desc: "Web Development" },
     { name: "VS Code", category: "Web Development", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-10 h-10" />, link: "https://code.visualstudio.com", desc: "Code Editor" },
-     { name: "Git", category: "Web Development", icon: <SiGit size={40} className="text-orange-600" />, link: "https://git-scm.com", desc: "Version Control" },
+    { name: "Git", category: "Web Development", icon: <SiGit size={40} className="text-orange-600" />, link: "https://git-scm.com", desc: "Version Control" },
 
     { name: "Tailwind", category: "Design", icon: <SiTailwindcss size={40} className="text-sky-400" />, link: "https://tailwindcss.com", desc: "Web Design" },
     { name: "Bootstrap", category: "Design", icon: <SiBootstrap size={40} className="text-purple-600" />, link: "https://getbootstrap.com", desc: "Web Design" },
@@ -48,11 +48,11 @@ function Skills() {
     category === "All" ? skills : skills.filter((s) => s.category === category);
 
   return (
-    <section id="skills" className="py-20 px-6 bg-[#141b2d] text-white relative">
+    <section id="skills" className="py-16 px-4 sm:px-6 bg-[#141b2d] text-white relative">
       <div className="max-w-6xl mx-auto text-center">
         {/* Header */}
         <motion.h2
-          className="text-5xl font-extrabold mb-6 tracking-wide"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 tracking-wide"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -64,7 +64,7 @@ function Skills() {
         </motion.h2>
 
         <motion.p
-          className="text-gray-400 mb-14 text-lg"
+          className="text-gray-400 mb-10 sm:mb-14 text-base sm:text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -74,7 +74,7 @@ function Skills() {
 
         {/* Categories */}
         <motion.div
-          className="flex justify-center gap-4 mb-12 flex-wrap"
+          className="flex justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 flex-wrap"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
@@ -83,7 +83,7 @@ function Skills() {
             <button
               key={cat}
               onClick={() => setCategory(cat)}
-              className={`px-5 py-2.5 rounded-full border transition font-medium shadow-md ${
+              className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border transition font-medium shadow-md text-sm sm:text-base ${
                 category === cat
                   ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-cyan-500/40"
                   : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10"
@@ -96,7 +96,7 @@ function Skills() {
 
         {/* Skill Cards */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8"
           initial="hidden"
           animate="show"
           variants={{
@@ -113,21 +113,21 @@ function Skills() {
               href={skill.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative rounded-2xl p-6 backdrop-blur-lg bg-white/5 border border-white/10 
-                         shadow-lg transition-all duration-500 hover:-translate-y-3 hover:scale-105 
-                         hover:shadow-cyan-500/40 flex flex-col items-center"
+              className="group relative rounded-xl sm:rounded-2xl p-4 sm:p-6 backdrop-blur-lg bg-white/5 border border-white/10 
+                         shadow-lg transition-all duration-500 hover:-translate-y-2 hover:scale-105 
+                         hover:shadow-cyan-500/40 flex flex-col items-center text-center"
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
               }}
             >
-              <div className="mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              <div className="mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 {skill.icon}
               </div>
-              <p className="font-semibold text-lg group-hover:text-cyan-300">
+              <p className="font-semibold text-sm sm:text-lg group-hover:text-cyan-300">
                 {skill.name}
               </p>
-              <p className="text-sm text-gray-400 mt-2 text-center leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 mt-2 leading-relaxed">
                 {skill.desc}
               </p>
             </motion.a>
